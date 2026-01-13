@@ -20,7 +20,6 @@ public class fHitung extends javax.swing.JFrame {
     public fHitung() {//constructor
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -143,7 +142,7 @@ public class fHitung extends javax.swing.JFrame {
                                     .addComponent(txtQTY, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addComponent(btnHitung)))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
