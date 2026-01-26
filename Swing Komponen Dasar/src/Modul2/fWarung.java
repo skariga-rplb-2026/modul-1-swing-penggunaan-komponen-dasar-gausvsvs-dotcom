@@ -19,7 +19,11 @@ public class fWarung extends javax.swing.JFrame {
      */
     public fWarung() {
         initComponents();
+        rdgCaraBayar.add(rdoCash);
+        rdgCaraBayar.add(rdoBCA);
+        rdgCaraBayar.add(rdoMandiri);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,8 +109,14 @@ public class fWarung extends javax.swing.JFrame {
 
         jLabel3.setText("Cara Bayar");
 
+        rdoCash.setSelected(true);
         rdoCash.setText("Cash");
         rdoCash.setActionCommand("Uang Cash");
+        rdoCash.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoCashActionPerformed(evt);
+            }
+        });
 
         rdoBCA.setText("BCA Card");
         rdoBCA.setActionCommand("Kartu Debit BCA");
@@ -117,7 +127,12 @@ public class fWarung extends javax.swing.JFrame {
         });
 
         rdoMandiri.setText("Mandiri Card");
-        rdoMandiri.setActionCommand("Kartu Debit Mandiri");
+        rdoMandiri.setActionCommand("Kartu Kredit Mandiri");
+        rdoMandiri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoMandiriActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,12 +197,11 @@ public class fWarung extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnHitung)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSoto, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(txtSate, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(txtEsJeruk, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(txtEsTeh, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSoto, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(txtSate, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(txtEsJeruk, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(txtEsTeh, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                     .addComponent(btnKosong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
@@ -238,6 +252,7 @@ public class fWarung extends javax.swing.JFrame {
 
     private void rdoBCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoBCAActionPerformed
         // TODO add your handling code here:
+        lblCaraBayar.setText(rdoBCA.getActionCommand());
     }//GEN-LAST:event_rdoBCAActionPerformed
 
     private void chkSotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSotoActionPerformed
@@ -347,6 +362,16 @@ public class fWarung extends javax.swing.JFrame {
         lblTotal.setText("Rp. 0");
         lblCaraBayar.setText("Cara Bayar");
     }//GEN-LAST:event_btnKosongActionPerformed
+
+    private void rdoCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoCashActionPerformed
+        // TODO add your handling code here:
+        lblCaraBayar.setText(rdoCash.getActionCommand());
+    }//GEN-LAST:event_rdoCashActionPerformed
+
+    private void rdoMandiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoMandiriActionPerformed
+        // TODO add your handling code here:
+        lblCaraBayar.setText(rdoMandiri.getActionCommand());
+    }//GEN-LAST:event_rdoMandiriActionPerformed
 
     /**
      * @param args the command line arguments

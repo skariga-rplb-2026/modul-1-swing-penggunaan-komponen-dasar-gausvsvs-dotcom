@@ -156,23 +156,19 @@ public class fHitung extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel4)
                             .addComponent(jLabel7))
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtNamabarang, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txtQTY, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                                            .addComponent(txtdiskon, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(txtNamabarang, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(btnHitung)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtQTY, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                                        .addComponent(txtdiskon, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(btnHitung))
                                 .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
@@ -207,9 +203,9 @@ public class fHitung extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(13, 13, 13)
                         .addComponent(btnHitung)
-                        .addGap(18, 18, 18)
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnKeluar)
                             .addComponent(lblTotal))
@@ -242,14 +238,13 @@ public class fHitung extends javax.swing.JFrame {
         double qty = Double.parseDouble(txtQTY.getText());
         double total = harga * qty;
         double diskon = 0;
-        
-        if (total >= 100000) {
-            diskon = total * 0.10;
-        } else if (total >= 50000) {
-            diskon = total * 0.05;
+        String inputDiskon = txtdiskon.getText();
+        if(inputDiskon !=null&& !inputDiskon.trim().isEmpty()){
+            diskon = Double.parseDouble(inputDiskon);
         }
-
-        double totalBayar = total - diskon;
+        double nomdiskon = total * (diskon / 100.0);
+        
+        double totalBayar = total - nomdiskon;
         txtdiskon.setText(Double.toString(diskon));
         txtTotal.setText(Double.toString(total));
 
